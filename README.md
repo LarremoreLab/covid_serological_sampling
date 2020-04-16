@@ -5,3 +5,7 @@ This repository stores code and data associated with the manuscript **Estimating
 This repository is maintained by [Daniel Larremore](https://larremorelab.github.io/). Questions can be directed to `daniel.larremore@colorado.edu`.
 
 Code is written primarily in `python` but the MCMC engine has been rewritten in `R` because it is, for some reason, faster. 
+
+# Code Availability Status
+
+Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/16/2020]
