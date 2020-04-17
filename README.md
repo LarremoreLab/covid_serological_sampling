@@ -8,4 +8,11 @@ Code is written primarily in `python` but the MCMC engine has been rewritten in 
 
 # Code Availability Status
 
-Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/16/2020]
+Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/17/2020]
+
+# SEIR Simulations
+
+In the paper, we have a figure like this one:
+![Image of SEIR Simulation](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/SEIR_workbook.png)
+
+This figure can be recreated from scratch using the Jupyter notebook `codebase/SEIR_workbook.ipynb`.
