@@ -15,4 +15,8 @@ Code for this project will be made available as fast as I can document it, write
 In the paper, we have a figure like this one:
 ![Image of SEIR Simulation](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/SEIR_workbook.png)
 
-This figure can be recreated from scratch using the Jupyter notebook `codebase/SEIR_workbook.ipynb`.
+This figure can be recreated from scratch using the Jupyter notebook `codebase/SEIR_workbook.ipynb`. In order, this notebook:
+1. Simulates hypothetical data. (Real data could be inserted here.)
+2. Infers the posterior distribution over seroprevalence using the sensitivity and specificity values chosen.
+3. Runs an SEIR simulation forward. (Initial conditions, parameters, and assumptions about immunity could be adjusted here.)
+4. Calculates both peak timing and height distributions. (only Height is plotted, but this can be adjusted in plots.)
