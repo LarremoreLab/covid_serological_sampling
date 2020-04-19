@@ -8,7 +8,7 @@ Code is written primarily in `python` but the MCMC engine has been rewritten in 
 
 # Code Availability Status
 
-Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/17/2020]
+Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/18/2020]
 
 
 # Inference of prevalence (one population)
