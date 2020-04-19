@@ -10,19 +10,25 @@ Code is written primarily in `python` but the MCMC engine has been rewritten in 
 
 Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/17/2020]
 
+
 # Inference of prevalence from a serological survey
 
 When sensitivity and specificity are known, one can use those values, along with the number of positive and negative test results, to produce posterior estimates of prevalence like this one:
 [![Image of Seroprevalence Posterior](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/calculator.png)](https://larremorelab.github.io/covid-serology)
 
+### Interactive web tool option
 This figure can be created and downloaded by using the web-based calculator available at [https://larremorelab.github.io/covid-serology](https://larremorelab.github.io/covid-serology). 
+
+### Python option
+To perform the same inference in python, a notebook is available at [`codebase/prevalence_onepopulation_workbook.ipynb`](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/codebase/prevalence_onepopulation_workbook.ipynb)
+
 
 # SEIR Simulations
 
 In the paper, we have a figure like this one:
 ![Image of SEIR Simulation](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/SEIR_workbook.png)
 
-This figure can be recreated from scratch using the Jupyter notebook `codebase/SEIR_workbook.ipynb`. In order, this notebook:
+This figure can be recreated from scratch using the Jupyter notebook [`codebase/SEIR_workbook.ipynb`](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/codebase/SEIR_workbook.ipynb). In order, this notebook:
 1. Simulates hypothetical data. (Real data could be inserted here.)
 2. Infers the posterior distribution over seroprevalence using the sensitivity and specificity values chosen.
 3. Runs an SEIR simulation forward. (Initial conditions, parameters, and assumptions about immunity could be adjusted here.)
