@@ -13,7 +13,7 @@ Code for this project will be made available as fast as I can document it, write
 # Inference of prevalence from a serological survey
 
 When sensitivity and specificity are known, one can use those values, along with the number of positive and negative test results, to produce posterior estimates of prevalence like this one:
-[![Image of Seroprevalence Posterior](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/calculator.png)](https://larremorelab.github.io/covid-serology)
+[![Image of Seroprevalence Posterior](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/calculator.png){:height="50%" width="50%"}](https://larremorelab.github.io/covid-serology)
 
 This figure can be created and downloaded by using the web-based calculator available at [https://larremorelab.github.io/covid-serology](https://larremorelab.github.io/covid-serology). 
 
