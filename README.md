@@ -39,7 +39,7 @@ For the moment, the sample size calculation has not been wrapped in its own func
 2. The range of prevalence values that are plausibly expected.
 3. The posterior uncertainty spec that is trying to be achieved. 
 
-As a general rule, one could take the plausible prevalence values, and choos the one closest to 0.5. Then, use the notebook [`codebase/prevalence_onepopulation_workbook.ipynb`](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/codebase/prevalence_onepopulation_workbook.ipynb) to explore how sample counts affect posterior error (measured by credible interval width).
+As a general rule, one could take the plausible prevalence values, choose the one closest to 0.5, and assume that the true seroprevalence is that "worst case" value. Then, use the notebook [`codebase/prevalence_onepopulation_workbook.ipynb`](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/codebase/prevalence_onepopulation_workbook.ipynb) to explore how sample counts affect posterior error (measured by credible interval width).
 
 # SEIR Simulations
 
