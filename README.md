@@ -10,6 +10,13 @@ Code is written primarily in `python` but the MCMC engine has been rewritten in 
 
 Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/17/2020]
 
+# Inference of prevalence from a serological survey
+
+When sensitivity and specificity are known, one can use those values, along with the number of positive and negative test results, to produce posterior estimates of prevalence like this one:
+![Image of Seroprevalence Posterior](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/calculator.png)
+
+This figure can be created and downloaded by using the web-based calculator available at [https://larremorelab.github.io/covid-serology](https://larremorelab.github.io/covid-serology). 
+
 # SEIR Simulations
 
 In the paper, we have a figure like this one:
