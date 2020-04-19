@@ -32,6 +32,14 @@ The notebook [`codebase/prevalence_subpopulations_workbook.ipynb`](https://githu
 
 ![Image of Subpopulation Seroprevalence Posteriors](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/subpopulations.png)
 
+# Sample size calculator (one population)
+
+For the moment, the sample size calculation has not been wrapped in its own function to allow one to "solve for `n`". However, if one wanted to compute the number of samples required to produce estimates to within a certain uncertainty, that number would depend on
+1. Test sensitivity and specificity.
+2. The range of prevalence values that are plausibly expected.
+3. The posterior uncertainty spec that is trying to be achieved. 
+
+As a general rule, one could take the plausible prevalence values, and choos the one closest to 0.5. Then, use the notebook [`codebase/prevalence_onepopulation_workbook.ipynb`](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/codebase/prevalence_onepopulation_workbook.ipynb) to explore how sample counts affect posterior error (measured by credible interval width).
 
 # SEIR Simulations
 
