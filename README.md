@@ -11,7 +11,7 @@ Code is written primarily in `python` but the MCMC engine has been rewritten in 
 Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/17/2020]
 
 
-# Inference of prevalence from a serological survey
+# Inference of prevalence (one population)
 
 When sensitivity and specificity are known, one can use those values, along with the number of positive and negative test results, to produce posterior estimates of prevalence like this one:
 [![Image of Seroprevalence Posterior](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/calculator.png)](https://larremorelab.github.io/covid-serology)
@@ -21,6 +21,16 @@ This figure can be created and downloaded by using the web-based calculator avai
 
 ### Python option
 To perform the same inference in python, a notebook is available at [`codebase/prevalence_onepopulation_workbook.ipynb`](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/codebase/prevalence_onepopulation_workbook.ipynb)
+
+# Inference of prevalence (multiple subpopulations)
+
+When there are multiple subpopulations, it is tempting to simply use the estimation approach above, independently for each subpopulation. However, *especially when the number of samples per bin is small*, this is not a good idea, as the estimates may vary wildly. What can be done?
+
+What we do in the paper, which we provide code for here, is to use a Bayesian hierarchical model where the supopulation seroprevalences share a prior distribution. The mean of that prior is informed entirely by the data, while the variance of that prior is weakly specified by a hyperprior. **In plain English**, the Bayesian approach allows the subpopulations to learn from each other without entraining to the same estimates. 
+
+The notebook [`codebase/prevalence_subpopulations_workbook.ipynb`](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/codebase/prevalence_subpopulations_workbook.ipynb) gives example code. Given data in the form of sensitivity, specificity, and the number of positive and negative samples in each subpopulation, the inference is performed to generate posterior estimates. Note that we are able to produce estimates *albeit with high uncertainty* for the supopulation that was dramatically undersampled. 
+
+![Image of Subpopulation Seroprevalence Posteriors](https://github.com/LarremoreLab/covid_serological_sampling/blob/master/images/subpopulations.png)
 
 
 # SEIR Simulations
