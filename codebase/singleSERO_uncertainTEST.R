@@ -26,10 +26,7 @@ sample_posterior_r_mcmc_testun <- function(samps,pos,n,tp,tn,fp,fn){
   delta_r <- 100*(1+floor(n/3000))
   delta_sp <- 100*(1+floor((tn+fp)/3000))
   delta_se <- 100*(1+floor((tp+fn)/3000))
-  
-  # push proposal for r slightly towards .5 to avoid boundary issues
-  r_cent <- 1 + (1/n)*(-1)^(r>.5) # CHANGED 
-  
+
   if(pos/n < 1-sp){
     delta_sp <- 100*(1+floor((n+tn+fp)/3000))
   }
@@ -41,12 +38,12 @@ sample_posterior_r_mcmc_testun <- function(samps,pos,n,tp,tn,fp,fn){
   {
     
     #MH step to update r
-    #propose r_prop | r ~ B((r*r_cent)*delta_r,(1-(r*r_cent))*delta_r)
-      r_prop <- rbeta(1,(r*r_cent)*delta_r,(1-(r*r_cent))*delta_r) ##CHANGED
+    #propose r_prop | r ~ B(r*delta_r,(1-r)*delta_r)
+      r_prop <- rbeta(1,r*delta_r,(1-r)*delta_r) 
       ar_r <- dbinom(pos,n,r_prop*se+(1-r_prop)*(1-sp),log=TRUE)-
         dbinom(pos,n,r*se+(1-r)*(1-sp),log=TRUE)+
-        dbeta(r,(r_prop*r_cent)*delta_r,(1-(r_prop*r_cent))*delta_r,log=TRUE)- ## CHANGED
-        dbeta(r_prop,(r*r_cent)*delta_r,(1-(r*r_cent))*delta_r,log=TRUE) ## CHANGED
+        dbeta(r,r_prop*delta_r,(1-r_prop)*delta_r,log=TRUE)- 
+        dbeta(r_prop,r*delta_r,(1-r)*delta_r,log=TRUE) 
       if(log(runif(1))<ar_r){r <- r_prop;ac_r <- ac_r+1}
       
       
@@ -71,7 +68,7 @@ sample_posterior_r_mcmc_testun <- function(samps,pos,n,tp,tn,fp,fn){
         dbeta(sp,sp_prop*delta_sp,(1-sp_prop)*delta_sp,log=TRUE)-
         dbeta(sp_prop,sp*delta_sp,(1-sp)*delta_sp,log=TRUE)
       if(log(runif(1))<ar_sp){sp <- sp_prop;ac_sp <- ac_sp+1}
-    
+      
     if(s%%thin==0 && s>burn_in) # problematic if burn_in is not multiple of thin
     {
       r_post[(s-burn_in)/thin] <- r
@@ -85,54 +82,3 @@ sample_posterior_r_mcmc_testun <- function(samps,pos,n,tp,tn,fp,fn){
   return(param_samps)
 }
 
-
-
-# tp <- 279
-# fn <- 21
-# fp <- 25
-# tn <- 975
-# 
-# 
-# n <- 1000
-# pos <- 150
-# samps <- 1000
-# 
-# res <- sample_posterior_r_mcmc_testun(samps,pos,n,tp,tn,fp,fn)
-# 
-# par(mfrow=c(3,1))
-# plot(res[,1],type="l")
-# plot(res[,2],type="l")
-# plot(res[,3],type="l")
-# 
-# library(coda)
-# apply(res,2,effectiveSize)
-# 
-# par(mfrow=c(3,1))
-# plot(density(res[,1]),main="r")
-# plot(density(res[,2]),main="se")
-# plot(density(res[,3]),main="sp")
-# 
-# 
-
-
-
-# tp <- 25+78+75
-# fn <- 12+7
-# fp <- 0+2
-# tn <- 30+369
-# 
-# 
-# neg <- 3280
-# pos <- 50
-# n <- neg+pos
-# samps <- 1000
-# 
-# res <- sample_posterior_r_mcmc_testun(samps,pos,n,tp,tn,fp,fn)
-
-# library(coda)
-# apply(res,2,effectiveSize)
-# 
-# par(mfrow=c(3,1))
-# plot(density(res[,1]),main="r")
-# plot(density(res[,2]),main="se")
-# plot(density(res[,3]),main="sp")
