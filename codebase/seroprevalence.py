@@ -182,6 +182,12 @@ def get_reff(my_N,my_r=np.zeros(16)):
     evals = np.abs(evals)
     return np.max(evals)
 
+def get_evec(N):
+    _,evecs = eig(N)
+    evec = evecs[:,0]
+    evec = np.array(list(np.array(np.abs(evec).transpose())[0]))
+    return evec/np.sum(evec)
+
 def sample_posterior_r_mcmc_hyper(samps,posi,ni,se,sp,gam0):
     '''
     sample_posterior_r_mcmc_hyper(samps,posi,ni,se,sp,gam0)
