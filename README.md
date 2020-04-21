@@ -6,10 +6,6 @@ This repository is maintained by [Daniel Larremore](https://larremorelab.github.
 
 Code is written primarily in `python` but the MCMC engine has been rewritten in `R` because it is, for some reason, faster. 
 
-# Code Availability Status
-
-Code for this project will be made available as fast as I can document it, write docstrings, and refactor for clarity. Please pardon any delays. [4/18/2020]
-
 
 # Inference of prevalence (one population)
 
