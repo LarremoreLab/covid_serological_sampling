@@ -1,7 +1,7 @@
 # Inputs:
 ## samps = number of MCMC samples desired
 ## pos = number of positive tests pop
-## n = number of neg tests in pop
+## n = total number of tests in pop
 ## tp = true positive tests in the lab
 ## tn = true negative tests in the lab
 ## fp = false positive tests in the lab
